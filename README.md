@@ -1,8 +1,8 @@
 <br>
-COMP2300 Assignment 1: C Programming - Image Processing
+bmpedit
 =======
 
-u6076879 (Stephanie Ding)
+Basic bitmap image processing tool.
 -----------
 <br>
 # Summary
