@@ -2,8 +2,6 @@
 bmpedit
 =======
 
-Basic bitmap image processing tool.
------------
 <br>
 # Summary
 
