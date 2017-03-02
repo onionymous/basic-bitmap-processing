@@ -154,7 +154,7 @@ Usage: `./bmpedit -m [MODE] [FILENAME.bmp]`
 
 Examples:
 
-[<img src="/bmps/cupmG.bmp" width="200" />](/bmps/cupmG.bmp)
+[<img src="/bmps/cupmGrey.bmp" width="200" />](/bmps/cupmGrey.bmp)
 &nbsp; &nbsp; &nbsp;
 [<img src="/bmps/cupmr.bmp" width="200" />](/bmps/cupmr.bmp)
 &nbsp; &nbsp; &nbsp;
