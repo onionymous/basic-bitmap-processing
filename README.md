@@ -121,7 +121,7 @@ Image height: 480
 
 Running threshold filter with value: 0.50
 ```
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupth.bmp" width="320" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupth.bmp)
+[<img src="/bmps/cupth.bmp" width="320" />](/bmps/cupth.bmp)
 
 ## Invert
 The invert filter inverts the colour of every pixel in the bitmap image by performing a bitwise NOT operation.
@@ -136,7 +136,7 @@ Image height: 480
 
 Running invert filter
 ```
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupi.bmp" width="320" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupi.bmp)
+[<img src="/bmps/cupi.bmp" width="320" />](/bmps/cupi.bmp)
 
 ## Monochrome
 The monochrome filter has four different modes:
@@ -154,13 +154,13 @@ Usage: `./bmpedit -m [MODE] [FILENAME.bmp]`
 
 Examples:
 
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmG.bmp" width="200" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmG.bmp)
+[<img src="/bmps/cupmG.bmp" width="200" />](/bmps/cupmG.bmp)
 &nbsp; &nbsp; &nbsp;
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmr.bmp" width="200" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmr.bmp)
+[<img src="/bmps/cupmr.bmp" width="200" />](/bmps/cupmr.bmp)
 &nbsp; &nbsp; &nbsp;
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmg.bmp" width="200" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmg.bmp)
+[<img src="/bmps/cupmg.bmp" width="200" />](/bmps/cupmg.bmp)
 &nbsp; &nbsp; &nbsp;
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmb.bmp" width="200" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupmb.bmp)
+[<img src="/bmps/cupmb.bmp" width="200" />](/bmps/cupmb.bmp)
 
 ## Crop
 The crop filter removes a certain number of pixels from each side of the image. It creates a new pixel array after determining the new size of the cropped image, copies the pixel values from the existing pixel array and replaces the bitmap's pixel array. The values for file size, pixel data size, width and height are then updated in the header to ensure that the new bitmap file is valid.
@@ -180,7 +180,7 @@ Running crop filter with values:
     Right: 50px
 ```
 
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupc.bmp" width="300" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupc.bmp)
+[<img src="/bmps/cupc.bmp" width="300" />]/bmps/cupc.bmp)
 
 ## Blur
 The blur function is a simple [box blur](https://en.wikipedia.org/wiki/Box_blur) implementation that calculates the value of each pixel using a convolution kernel that depends on the size of the blur radius specified. The value of the pixel is equal to the average of all the pixels within the blur radius. To improve the efficiency of the algorithm and reduce time complexity by removing repeated calculations, a sliding window approach was implemented. After calculating the sum of the pixels within the sliding window for the first pixel, for all subsequent pixels the window is shifted by one position, so the end pixel is subtracted from the sum and a new pixel is added to the sum. This is implemented for two separate blur functions, a horizontal blur and a vertical blur. When combined, the two functions produce the overall blur effect.
@@ -195,7 +195,7 @@ Image height: 480
 
 Running blur filter with radius: 10
 ```
-[<img src="https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupb.bmp" width="320" />](https://gitlab.cecs.anu.edu.au/u6076879/comp2300-2016-assignment1/raw/master/bmps/cupb.bmp)
+[<img src="/bmps/cupb.bmp" width="320" />](/bmps/cupb.bmp)
 
 # Testing
 The provided `cup.bmp` file was used extensively during the construction and testing of this program to ensure that it conformed to the assignment specifications. However, as `cup.bmp` had a row width that was a multiple of 4, other bitmaps files with different row widths were created to ensure that the program could adequately handle bitmap row padding. These test files are included in the `bmps` folder.
