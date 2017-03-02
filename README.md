@@ -180,7 +180,7 @@ Running crop filter with values:
     Right: 50px
 ```
 
-[<img src="/bmps/cupc.bmp" width="300" />]/bmps/cupc.bmp)
+[<img src="/bmps/cupc.bmp" width="300" />](/bmps/cupc.bmp)
 
 ## Blur
 The blur function is a simple [box blur](https://en.wikipedia.org/wiki/Box_blur) implementation that calculates the value of each pixel using a convolution kernel that depends on the size of the blur radius specified. The value of the pixel is equal to the average of all the pixels within the blur radius. To improve the efficiency of the algorithm and reduce time complexity by removing repeated calculations, a sliding window approach was implemented. After calculating the sum of the pixels within the sliding window for the first pixel, for all subsequent pixels the window is shifted by one position, so the end pixel is subtracted from the sum and a new pixel is added to the sum. This is implemented for two separate blur functions, a horizontal blur and a vertical blur. When combined, the two functions produce the overall blur effect.
