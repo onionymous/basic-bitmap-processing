@@ -1,8 +1,6 @@
-<br>
 bmpedit
 =======
 
-<br>
 # Summary
 
 ## Description
@@ -76,14 +74,14 @@ gcc -Wall -std=gnu99 -o bmpedit bmpedit.c data/bitmap.c extensions/threshold.c e
 
 ## Running
 The program can be run through the command line using: `./bmpedit [OPTIONS] [FILENAME.bmp]`
-<br><br>
+
 Basic usage of the program without specifying any options will print out the width and height of the image.
 ```
 $ ./bmpedit cup.bmp
 Image width: 640
 Image height: 480
 ```
-<br>
+
 Running the program with the `-h` option or with no specified filename will print the following usage message:
 ```
 -------------------------------------------------------------------------------------------------------------------------
@@ -112,7 +110,7 @@ An output file other than the default `out.bmp` can be specified with the `-o` o
 The threshold filter takes a floating-point value between 0.0 and 1.0. For every pixel in the bitmap image, if the brightness of the pixel (i.e. the average of the red/green/blue pixel values) is greater than thee threshold value, then the pixel is coloured white. Otherwise, it is coloured black.
 
 Usage:  `./bmpedit -t [number between 0.0 and 1.0] [FILENAME.bmp]`
-<br><br>
+
 Example:
 ```
 $ ./bmpedit -t 0.5 -o cupth.bmp cup.bmp
@@ -121,13 +119,13 @@ Image height: 480
 
 Running threshold filter with value: 0.50
 ```
-[<img src="/bmps/cupth.bmp" width="320" />](/bmps/cupth.bmp)
+<img src="/bmps/cupth.bmp" width="320" />
 
 ## Invert
 The invert filter inverts the colour of every pixel in the bitmap image by performing a bitwise NOT operation.
 
 Usage: `./bmpedit -i [FILENAME.bmp]`
-<br><br>
+
 Example:
 ```
 $ ./bmpedit -i -o cupi.bmp cup.bmp
@@ -136,7 +134,7 @@ Image height: 480
 
 Running invert filter
 ```
-[<img src="/bmps/cupi.bmp" width="320" />](/bmps/cupi.bmp)
+<img src="/bmps/cupi.bmp" width="320" />
 
 ## Monochrome
 The monochrome filter has four different modes:
@@ -150,23 +148,20 @@ The greyscale filter is based off the [ITU-R 601-2 luma transform](https://en.wi
 The colour filters set the values of the other two components to zero for every pixel in the bitmap, effectively isolating a single colour channel.
 
 Usage: `./bmpedit -m [MODE] [FILENAME.bmp]`
-<br><br>
+
 
 Examples:
 
-[<img src="/bmps/cupmGrey.bmp" width="200" />](/bmps/cupmGrey.bmp)
-&nbsp; &nbsp; &nbsp;
-[<img src="/bmps/cupmr.bmp" width="200" />](/bmps/cupmr.bmp)
-&nbsp; &nbsp; &nbsp;
-[<img src="/bmps/cupmg.bmp" width="200" />](/bmps/cupmg.bmp)
-&nbsp; &nbsp; &nbsp;
-[<img src="/bmps/cupmb.bmp" width="200" />](/bmps/cupmb.bmp)
+<img src="/bmps/cupmGrey.bmp" width="200" />
+<img src="/bmps/cupmr.bmp" width="200" />
+<img src="/bmps/cupmg.bmp" width="200" />
+<img src="/bmps/cupmb.bmp" width="200" />
 
 ## Crop
 The crop filter removes a certain number of pixels from each side of the image. It creates a new pixel array after determining the new size of the cropped image, copies the pixel values from the existing pixel array and replaces the bitmap's pixel array. The values for file size, pixel data size, width and height are then updated in the header to ensure that the new bitmap file is valid.
 
 Usage: `./bmpedit -c [TOP] [BOTTOM] [LEFT] [RIGHT] [FILENAME.bmp]`
-<br><br>
+
 Example:
 ```
 $ ./bmpedit -c 50 50 50 50 -o cupc.bmp cup.bmp
@@ -180,13 +175,13 @@ Running crop filter with values:
     Right: 50px
 ```
 
-[<img src="/bmps/cupc.bmp" width="300" />](/bmps/cupc.bmp)
+<img src="/bmps/cupc.bmp" width="300" />
 
 ## Blur
 The blur function is a simple [box blur](https://en.wikipedia.org/wiki/Box_blur) implementation that calculates the value of each pixel using a convolution kernel that depends on the size of the blur radius specified. The value of the pixel is equal to the average of all the pixels within the blur radius. To improve the efficiency of the algorithm and reduce time complexity by removing repeated calculations, a sliding window approach was implemented. After calculating the sum of the pixels within the sliding window for the first pixel, for all subsequent pixels the window is shifted by one position, so the end pixel is subtracted from the sum and a new pixel is added to the sum. This is implemented for two separate blur functions, a horizontal blur and a vertical blur. When combined, the two functions produce the overall blur effect.
 
 Usage: `./bmpedit -b [RADIUS] [FILENAME.bmp]`
-<br><br>
+
 Example:
 ```
 $ ./bmpedit -b 10 -o cupb.bmp cup.bmp
@@ -195,7 +190,7 @@ Image height: 480
 
 Running blur filter with radius: 10
 ```
-[<img src="/bmps/cupb.bmp" width="320" />](/bmps/cupb.bmp)
+<img src="/bmps/cupb.bmp" width="320" />
 
 # Testing
 The provided `cup.bmp` file was used extensively during the construction and testing of this program to ensure that it conformed to the assignment specifications. However, as `cup.bmp` had a row width that was a multiple of 4, other bitmaps files with different row widths were created to ensure that the program could adequately handle bitmap row padding. These test files are included in the `bmps` folder.
@@ -203,27 +198,27 @@ Black-box testing was employed with several cases to ensure the program behaved 
 
 ## Test cases
 
-+ Testing a case where no filters are applied and the same file is written out <br>
-`./bmpedit -o out.bmp cup.bmp` <br>
++ Testing a case where no filters are applied and the same file is written out
+`./bmpedit -o out.bmp cup.bmp`
 (Running the `diff` function shows that `out.bmp` and `cup.bmp` are identical, which is the expected outcome.)
 + Testing a 1x1 bitmap
-`./bmpedit -o out.bmp bmps/1x1.bmp` <br>
-+ Testing other bitmaps of various sizes, particularly those with row sizes that are not a multiple of 4 (to account for padding) <br>
-`./bmpedit -o out.bmp -i -t 0.50 bmps/m1.bmp` <br>
+`./bmpedit -o out.bmp bmps/1x1.bmp`
++ Testing other bitmaps of various sizes, particularly those with row sizes that are not a multiple of 4 (to account for padding) 
+`./bmpedit -o out.bmp -i -t 0.50 bmps/m1.bmp`
 `./bmpedit -o out.bmp -c 1 1 1 1 bmps/m2.bmp`
-+ Testing combinations of various filters <br>
++ Testing combinations of various filters
 `./bmpedit -o bmps/mixed.bmp -i -c 50 50 50 50 -b 100 bmps/m2.bmp`
 + Testing the crop function
-    + Cropping no pixels off each side <br>
+    + Cropping no pixels off each side
     `./bmpedit -c 0 0 0 0 -o out.bmp cup.bmp`
-    + Cropping a multiple of 4 <br>
+    + Cropping a multiple of 4
     `./bmpedit -c 4 4 4 4 -o out.bmp bmps/m1.bmp`
-    + Cropping random numbers <br>
+    + Cropping random numbers
     `./bmpedit -c 4 34 1 99 bmps/m1.bmp`
-    + Cropping to create a 1x1 bitmap <br>
+    + Cropping to create a 1x1 bitmap
     `./bmpedit -c 0 479 0 639 cup.bmp`
-+ Testing a large blur radius <br>
-`./bmpedit -b 480 cup.bmp` <br>
++ Testing a large blur radius
+`./bmpedit -b 480 cup.bmp`
 (completely grey image)
     
 All the above cases produce valid bitmap files as output and do not result in any errors.
