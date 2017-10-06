@@ -152,10 +152,7 @@ Usage: `./bmpedit -m [MODE] [FILENAME.bmp]`
 
 Examples:
 
-<img src="/bmps/cupmGrey.bmp" width="200" />
-<img src="/bmps/cupmr.bmp" width="200" />
-<img src="/bmps/cupmg.bmp" width="200" />
-<img src="/bmps/cupmb.bmp" width="200" />
+<img src="/bmps/cupmGrey.bmp" width="200" />      <img src="/bmps/cupmr.bmp" width="200" />      <img src="/bmps/cupmg.bmp" width="200" />      <img src="/bmps/cupmb.bmp" width="200" />
 
 ## Crop
 The crop filter removes a certain number of pixels from each side of the image. It creates a new pixel array after determining the new size of the cropped image, copies the pixel values from the existing pixel array and replaces the bitmap's pixel array. The values for file size, pixel data size, width and height are then updated in the header to ensure that the new bitmap file is valid.
